@@ -37,9 +37,17 @@ fetch(myRequest)
       propertyName.className = "property-name"
       propertyName.innerHTML = name;
 
+
+      const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'BRL',
+        minimumFractionDigits: 2
+      })
+
+
       propertyPrice = document.createElement("div");
       propertyPrice.className = "property-price";
-      propertyPrice.innerHTML = price;
+      propertyPrice.innerHTML = formatter.format(price);
 
       row.appendChild(div);
       div.appendChild(card);
